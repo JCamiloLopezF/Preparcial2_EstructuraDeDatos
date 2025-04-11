@@ -1,0 +1,140 @@
+Notación Polaca
+
+A).
+
+(A + B) * C - (D - E) * (F + G)
+A = 5 , B = 8 , C = 9 , D = 13 , E = 1 , F = 21 , G = 4
+
+Prefija
+- * + A B C * - D E + F G
+
+Posfija
+A B + C * D E - F G + * -
+
+
+Carácter leído        Acción           Pila
+
+      A              meter(5)           5
+
+      B              meter(8)           8,5
+
+                     Op2=Sacar 8
+      +              Op1=Sacar 5        13
+                     5+8= 13            
+                     meter(13)
+
+      C              meter(9)           9,13 
+
+                    Op2=Sacar 9
+      *             Op1=Sacar 13        117
+                    13*9= 117
+                    meter(117)
+     
+      D             meter(13)          13,117
+ 
+      E             meter(1)           1,13,117
+
+                    Op2=Sacar 1
+      -             Op1=Sacar 13       12,117
+                    13-1= 12
+                    meter(12)
+
+
+      F             meter(21)          21,12,117
+
+      G             meter(4)           4,21,12,117
+
+                    Op2=Sacar 4
+      +             Op1=Sacar 21       25,12,117
+                    21+4= 25
+                    meter(25)
+
+                    Op2=Sacar 25
+      *             Op1=Sacar 12       300,117   
+                    12*25= 300
+                    meter(300)
+
+                    Op2=Sacar 300
+      -             Op1=Sacar 117      -183
+                    117-300= -183
+                    meter(-183)
+
+
+B).
+4*(5+6-(8/2^3)-7)-1
+
+Prefija
+- * 4 - - + 5 6 / 8 ^ 2 3 7 1
+
+Posfija
+4 5 6 + 8 2 3 ^ / - 7 - * 1 -
+
+
+Carácter leído        Acción           Pila
+
+      4              meter(4)           4
+
+      5              meter(5)           5,4
+
+      6              meter(6)           6,5,4
+
+                     Op2=Sacar 6
+      +              Op1=Sacar 5        11,4
+                     5+6= 11            
+                     meter(11)
+
+      8              meter(8)           8,11,4
+
+      2              meter(2)           2,8,11,4
+
+      3              meter(3)           3,2,8,11,4
+
+                    Op2=Sacar 3
+      ^             Op1=Sacar 2         8,8,11,4
+                    2^3 = 8
+                    meter(8)
+
+                    Op2=Sacar 8
+       /            Op1=Sacar 8         1,11,4
+                    8/8 = 1
+                    meter(1)
+
+                    Op2=Sacar 1
+       -            Op1=Sacar 11        10,4
+                    11-1 = 10
+                    meter(10)
+
+       7            meter(7)            7,10,4
+
+                    Op2=Sacar 7
+       -            Op1=Sacar 10        3,4       
+                    10-7 = 3
+                    meter(3)
+
+                    Op2=Sacar 3
+       *            Op1=Sacar 4         12       
+                    4*3 = 12
+                    meter(12)
+
+       1            meter(1)            1,12
+
+                    Op2=Sacar 1
+       -            Op1=Sacar 12        11
+                    12-1= 11
+                    meter(11)
+
+C).
+((3*(6+(8*3^3)-1)*1)*19)-20
+
+Prefija
+- * * * 3 - + 6 * 8 ^ 3 3 1 1 19 20
+
+Posfija
+3 6 8 3 3 ^ * + 1 - * 1 * 19 * 20 -
+
+
+
+
+
+                    
+      
